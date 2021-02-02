@@ -8,11 +8,15 @@ namespace ValorantNET.Test
     class Program
     {
         private static ValorantClient ValorantClient = new ValorantClient();
+        private static string username = "Teo230";
+        private static string tag = "EUW";
+        private static string matchId = "16580950-58f8-4eac-9642-a04468fa94c9";
 
         static void Main(string[] args)
         {
             //GetStats();
-            GetMatches();
+            //GetMatches();
+            GetMatcheInfo();
             Console.ReadKey();
         }
 
@@ -20,7 +24,7 @@ namespace ValorantNET.Test
         {
             var task = new Task(async () =>
             {
-                var result = await ValorantClient.GetStatsAsync("Teo230", "EUW");
+                var result = await ValorantClient.GetStatsAsync(username, tag);
                 if (result != null)
                     ShowProp(result);
             });
@@ -31,8 +35,19 @@ namespace ValorantNET.Test
         {
             var task = new Task(async () =>
             {
-                var result = await ValorantClient.GetMatchesAsync("Teo230", "EUW");
+                var result = await ValorantClient.GetMatchesAsync(username, tag);
                 if(result != null)
+                    ShowProp(result);
+            });
+            task.Start();
+        }
+
+        private static void GetMatcheInfo()
+        {
+            var task = new Task(async () =>
+            {
+                var result = await ValorantClient.GetMatchInfoAsync(matchId);
+                if (result != null)
                     ShowProp(result);
             });
             task.Start();

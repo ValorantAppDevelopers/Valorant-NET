@@ -40,6 +40,17 @@ namespace ValorantNET
             return result;
         }
 
+        /// <summary>
+        /// Returns a match overview
+        /// </summary>
+        /// <param name="matchId"></param>
+        /// <returns></returns>
+        public async Task<MatchInfo> GetMatchInfoAsync(string matchId)
+        {
+            var result = await GetRequestAsync<MatchInfo>($"/valorant/v1/match/{matchId}");
+            return result;
+        }
+
         private async Task<T> GetRequestAsync<T>(string request)
         {
             try
