@@ -146,9 +146,9 @@ namespace ValorantNET
             {
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new Uri(Endpoint + Route + ApiVersion);
+                    client.BaseAddress = new Uri(Endpoint);
 
-                    var result = await client.GetAsync(request);
+                    var result = await client.GetAsync(Route + ApiVersion + request);
                     var contents = await result.Content.ReadAsStringAsync();
                     var modelObject = JsonConvert.DeserializeObject<T>(contents);
 

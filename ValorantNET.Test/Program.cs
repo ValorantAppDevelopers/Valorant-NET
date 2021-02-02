@@ -16,11 +16,11 @@ namespace ValorantNET.Test
 
         static void Main(string[] args)
         {
-            //GetStats();
+            GetStats();
             //GetMatches();
             //GetMatcheInfo();
             //GetPUUID();
-            GetLeaderboard();
+            //GetLeaderboard();
             Console.ReadKey();
         }
 

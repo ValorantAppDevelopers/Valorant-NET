@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.3.3</Version>
+    <Version>1.1.3.1</Version>
     <PackageId>Valorant.NET</PackageId>
     <Company>ValorantAppDevelopers</Company>
     <Authors>Teo230</Authors>
@@ -12,6 +12,9 @@
     <Product>Valorant .NET</Product>
     <Description>Valorant .NET wrapper library
 The version follow the associated API service version</Description>
+    <AssemblyVersion>1.1.3.1</AssemblyVersion>
+    <FileVersion>1.1.3.1</FileVersion>
+    <PackageReleaseNotes>Fix endpoint</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
