@@ -16,5 +16,8 @@ This library use .NET Standard 2.0
 # Nuget Installation
 ```Install-Package Valorant.NET -Version 1.1.3```
 
+Or searching on Nuget ```Valorant.NET```
+
+
 # Contributors
 [@Henrik-3](https://github.com/Henrik-3/unofficial-valorant-api) for service hosting and documentation
