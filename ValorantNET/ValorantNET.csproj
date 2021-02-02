@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.0-beta</Version>
+    <PackageId>Valorant.NET</PackageId>
+    <Company>ValorantAppDevelopers</Company>
+    <Authors>Teo230</Authors>
+    <PackageProjectUrl>https://github.com/ValorantAppDevelopers/Valorant-NET</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ValorantAppDevelopers/Valorant-NET</RepositoryUrl>
+    <Product>Valorant-NET</Product>
   </PropertyGroup>
 
   <ItemGroup>
