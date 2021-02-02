@@ -11,9 +11,9 @@ namespace ValorantNET.Test
 
         static void Main(string[] args)
         {
-            GetStats();
+            //GetStats();
+            GetMatches();
             Console.ReadKey();
-            //Console.WriteLine("Hello World!");
         }
 
         private static void GetStats()
@@ -21,7 +21,19 @@ namespace ValorantNET.Test
             var task = new Task(async () =>
             {
                 var result = await ValorantClient.GetStatsAsync("Teo230", "EUW");
-                ShowProp(result);
+                if (result != null)
+                    ShowProp(result);
+            });
+            task.Start();
+        }
+
+        private static void GetMatches()
+        {
+            var task = new Task(async () =>
+            {
+                var result = await ValorantClient.GetMatchesAsync("Teo230", "EUW");
+                if(result != null)
+                    ShowProp(result);
             });
             task.Start();
         }
