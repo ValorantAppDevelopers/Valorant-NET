@@ -14,7 +14,7 @@ This library use .NET Standard 2.0
 [Check](https://docs.microsoft.com/en-us/dotnet/standard/net-standard) the official Microsoft documentation for more info
 
 # Nuget Installation
-```Install-Package Valorant.NET -Version 1.1.3```
+```Install-Package Valorant.NET -Version 1.1.3.1```
 
 Or searching on Nuget ```Valorant.NET```
 
