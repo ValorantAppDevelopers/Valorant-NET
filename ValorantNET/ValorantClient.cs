@@ -51,6 +51,12 @@ namespace ValorantNET
             return result;
         }
 
+        public async Task<PUUID> GetPUUIDAsync(string name, string tag)
+        {
+            var result = await GetRequestAsync<PUUID>($"/valorant/v1/puuid/{name}/{tag}");
+            return result;
+        }
+
         private async Task<T> GetRequestAsync<T>(string request)
         {
             try

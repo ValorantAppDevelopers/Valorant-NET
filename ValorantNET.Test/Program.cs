@@ -16,7 +16,8 @@ namespace ValorantNET.Test
         {
             //GetStats();
             //GetMatches();
-            GetMatcheInfo();
+            //GetMatcheInfo();
+            GetPUUID();
             Console.ReadKey();
         }
 
@@ -47,6 +48,17 @@ namespace ValorantNET.Test
             var task = new Task(async () =>
             {
                 var result = await ValorantClient.GetMatchInfoAsync(matchId);
+                if (result != null)
+                    ShowProp(result);
+            });
+            task.Start();
+        }
+
+        private static void GetPUUID()
+        {
+            var task = new Task(async () =>
+            {
+                var result = await ValorantClient.GetPUUIDAsync(username, tag);
                 if (result != null)
                     ShowProp(result);
             });
