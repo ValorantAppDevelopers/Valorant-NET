@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using static ValorantNET.Enums;
 
 namespace ValorantNET.Test
 {
@@ -11,13 +12,15 @@ namespace ValorantNET.Test
         private static string username = "Teo230";
         private static string tag = "EUW";
         private static string matchId = "16580950-58f8-4eac-9642-a04468fa94c9";
+        private static Regions region = Regions.AP;
 
         static void Main(string[] args)
         {
             //GetStats();
             //GetMatches();
             //GetMatcheInfo();
-            GetPUUID();
+            //GetPUUID();
+            GetLeaderboard();
             Console.ReadKey();
         }
 
@@ -59,6 +62,17 @@ namespace ValorantNET.Test
             var task = new Task(async () =>
             {
                 var result = await ValorantClient.GetPUUIDAsync(username, tag);
+                if (result != null)
+                    ShowProp(result);
+            });
+            task.Start();
+        }
+
+        private static void GetLeaderboard()
+        {
+            var task = new Task(async () =>
+            {
+                var result = await ValorantClient.GetLeaderboardAsync(region);
                 if (result != null)
                     ShowProp(result);
             });

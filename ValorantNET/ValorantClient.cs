@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using ValorantNET.Models;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using static ValorantNET.Enums;
 
 namespace ValorantNET
 {
@@ -51,9 +52,26 @@ namespace ValorantNET
             return result;
         }
 
+        /// <summary>
+        /// Returns the Ingame PUUID of requested user
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="tag"></param>
+        /// <returns></returns>
         public async Task<PUUID> GetPUUIDAsync(string name, string tag)
         {
             var result = await GetRequestAsync<PUUID>($"/valorant/v1/puuid/{name}/{tag}");
+            return result;
+        }
+
+        /// <summary>
+        /// Returns the Ingame Leaderboard list for the selected region
+        /// </summary>
+        /// <param name="region"></param>
+        /// <returns></returns>
+        public async Task<Leaderboard> GetLeaderboardAsync(Regions region)
+        {
+            var result = await GetRequestAsync<Leaderboard>($"/valorant/v1/leaderboard/{region.ToString().ToLower()}");
             return result;
         }
 
