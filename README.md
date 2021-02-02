@@ -1,5 +1,5 @@
 # Valorant .NET - beta
-[![valorant.net on fuget.org](https://www.fuget.org/packages/valorant.net/badge.svg)](https://www.fuget.org/packages/valorant.net)
+[![valorant.net on fuget.org](https://www.fuget.org/packages/valorant.net/badge.svg?v=1.0.1-beta)](https://www.fuget.org/packages/valorant.net/1.0.1-beta)
 
 The available methods follow this project: https://github.com/Henrik-3/unofficial-valorant-api
 
