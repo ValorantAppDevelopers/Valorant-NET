@@ -11,6 +11,8 @@ namespace ValorantNET
     public class ValorantClient
     {
         private const string Endpoint = "https://api.henrikdev.xyz";
+        private const string Route = "/valorant";
+        private const string ApiVersion = "/v1";
 
         public ValorantClient()
         {
@@ -25,7 +27,7 @@ namespace ValorantNET
         /// <returns></returns>
         public async Task<Player> GetStatsAsync(string name, string tag)
         {
-            var result = await GetRequestAsync<Player>($"/valorant/v1/profile/{name}/{tag}");
+            var result = await GetRequestAsync<Player>($"/profile/{name}/{tag}");
             return result;
         }
 
@@ -37,7 +39,7 @@ namespace ValorantNET
         /// <returns></returns>
         public async Task<Match> GetMatchesAsync(string name, string tag)
         {
-            var result = await GetRequestAsync<Match>($"/valorant/v1/matches/{name}/{tag}");
+            var result = await GetRequestAsync<Match>($"/matches/{name}/{tag}");
             return result;
         }
 
@@ -48,7 +50,18 @@ namespace ValorantNET
         /// <returns></returns>
         public async Task<MatchInfo> GetMatchInfoAsync(string matchId)
         {
-            var result = await GetRequestAsync<MatchInfo>($"/valorant/v1/match/{matchId}");
+            var result = await GetRequestAsync<MatchInfo>($"/match/{matchId}");
+            return result;
+        }
+
+        /// <summary>
+        /// Get the server status filter by region
+        /// </summary>
+        /// <param name="matchId"></param>
+        /// <returns></returns>
+        public async Task<Status> GetServerStatusAsync(Regions region)
+        {
+            var result = await GetRequestAsync<Status>($"/status/{region.ToString().ToLower()}");
             return result;
         }
 
@@ -60,7 +73,7 @@ namespace ValorantNET
         /// <returns></returns>
         public async Task<PUUID> GetPUUIDAsync(string name, string tag)
         {
-            var result = await GetRequestAsync<PUUID>($"/valorant/v1/puuid/{name}/{tag}");
+            var result = await GetRequestAsync<PUUID>($"/puuid/{name}/{tag}");
             return result;
         }
 
@@ -71,7 +84,59 @@ namespace ValorantNET
         /// <returns></returns>
         public async Task<Leaderboard> GetLeaderboardAsync(Regions region)
         {
-            var result = await GetRequestAsync<Leaderboard>($"/valorant/v1/leaderboard/{region.ToString().ToLower()}");
+            var result = await GetRequestAsync<Leaderboard>($"/leaderboard/{region.ToString().ToLower()}");
+            return result;
+        }
+
+        /// <summary>
+        /// Get the content of the game
+        /// </summary>
+        /// <returns></returns>
+        public async Task<Content> GetContentAsync()
+        {
+            var result = await GetRequestAsync<Content>($"/content");
+            return result;
+        }
+
+        /// <summary>
+        /// Get offers item on store
+        /// </summary>
+        /// <returns></returns>
+        public async Task<StoreOffer> GetStoreOffersAsync()
+        {
+            var result = await GetRequestAsync<StoreOffer>($"/store-offers");
+            return result;
+        }
+
+        /// <summary>
+        /// Get featured/bundle items on store
+        /// </summary>
+        /// <returns></returns>
+        public async Task<StoreFeatured> GetStoreFeaturedAsync()
+        {
+            var result = await GetRequestAsync<StoreFeatured>($"/store-featured");
+            return result;
+        }
+
+        /// <summary>
+        /// Get website content
+        /// </summary>
+        /// <param name="countryCode"></param>
+        /// <returns></returns>
+        public async Task<Website> GetWebsiteAsync(CountryCodes countryCode)
+        {
+            var result = await GetRequestAsync<Website>($"/website/{countryCode.ToString().Replace("_","-").ToLower()}");
+            return result;
+        }
+
+        /// <summary>
+        /// Get website content filtered
+        /// </summary>
+        /// <param name="countryCode"></param>
+        /// <returns></returns>
+        public async Task<Website> GetWebsiteAsync(CountryCodes countryCode, WebsiteFilter websiteFilter)
+        {
+            var result = await GetRequestAsync<Website>($"/website/{countryCode.ToString().Replace("_", "-").ToLower()}?filter={websiteFilter}");
             return result;
         }
 
@@ -81,7 +146,7 @@ namespace ValorantNET
             {
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new Uri(Endpoint);
+                    client.BaseAddress = new Uri(Endpoint + Route + ApiVersion);
 
                     var result = await client.GetAsync(request);
                     var contents = await result.Content.ReadAsStringAsync();
