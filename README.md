@@ -1,5 +1,5 @@
 # Valorant .NET - 1.1.3
-[![valorant.net on fuget.org](https://www.fuget.org/packages/valorant.net/badge.svg?v=1.1.3)](https://www.fuget.org/packages/valorant.net/1.1.3)
+[![valorant.net on fuget.org](https://www.fuget.org/packages/valorant.net/badge.svg?v=1.1.3.1)](https://www.fuget.org/packages/valorant.net/1.1.3.1)
 
 The available methods follow this [project](https://github.com/Henrik-3/unofficial-valorant-api)
 
