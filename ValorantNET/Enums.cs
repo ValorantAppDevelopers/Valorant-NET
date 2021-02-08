@@ -39,5 +39,21 @@ namespace ValorantNET
             esports,
             announcements
         }
+
+        public enum MatchFilter
+        {
+            competitive,
+            spikerush,
+            deathmatch,
+            unrated
+        }
+
+        public enum EpisodeFilter
+        {
+            e2a1,
+            e1a3,
+            e1a2,
+            e1a1
+        }
     }
 }

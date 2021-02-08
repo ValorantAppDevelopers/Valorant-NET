@@ -8,7 +8,7 @@ namespace ValorantNET.Test
 {
     class Program
     {
-        private static ValorantClient ValorantClient = new ValorantClient();
+        private static ValorantClient ValorantClient;
         private static string username = "Teo230";
         private static string tag = "EUW";
         private static string matchId = "16580950-58f8-4eac-9642-a04468fa94c9";
@@ -16,7 +16,8 @@ namespace ValorantNET.Test
 
         static void Main(string[] args)
         {
-            GetStats();
+            ValorantClient = new ValorantClient(username,tag,region);
+            GetStatsV2();
             //GetMatches();
             //GetMatcheInfo();
             //GetPUUID();
@@ -28,7 +29,18 @@ namespace ValorantNET.Test
         {
             var task = new Task(async () =>
             {
-                var result = await ValorantClient.GetStatsAsync(username, tag);
+                var result = await ValorantClient.GetStatsAsync();
+                if (result != null)
+                    ShowProp(result);
+            });
+            task.Start();
+        }
+
+        private static void GetStatsV2()
+        {
+            var task = new Task(async () =>
+            {
+                var result = await ValorantClient.GetStatsAsync();
                 if (result != null)
                     ShowProp(result);
             });
@@ -39,7 +51,7 @@ namespace ValorantNET.Test
         {
             var task = new Task(async () =>
             {
-                var result = await ValorantClient.GetMatchesAsync(username, tag);
+                var result = await ValorantClient.GetMatchesAsync();
                 if(result != null)
                     ShowProp(result);
             });
@@ -61,7 +73,7 @@ namespace ValorantNET.Test
         {
             var task = new Task(async () =>
             {
-                var result = await ValorantClient.GetPUUIDAsync(username, tag);
+                var result = await ValorantClient.GetPUUIDAsync();
                 if (result != null)
                     ShowProp(result);
             });
@@ -72,7 +84,7 @@ namespace ValorantNET.Test
         {
             var task = new Task(async () =>
             {
-                var result = await ValorantClient.GetLeaderboardAsync(region);
+                var result = await ValorantClient.GetLeaderboardAsync();
                 if (result != null)
                     ShowProp(result);
             });
