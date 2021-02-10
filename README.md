@@ -4,7 +4,7 @@
 The available methods follow this [project](https://github.com/Henrik-3/unofficial-valorant-api)
 
 # Donation
-This project is possible thanks to @Henrik-3 that host the API service. So, I ask you to support him.
+This project is possible thanks to [@Henrik-3](https://github.com/Henrik-3/) that host the API service. So, I ask you to support him.
 More info at this [link](https://github.com/Henrik-3/unofficial-valorant-api#other-stuff)
 
 # Requirements
