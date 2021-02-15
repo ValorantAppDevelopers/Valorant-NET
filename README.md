@@ -1,5 +1,6 @@
 # Valorant .NET - 1.4
 [![valorant.net on fuget.org](https://www.fuget.org/packages/valorant.net/badge.svg?v=1.4.0)](https://www.fuget.org/packages/valorant.net/1.4.0)
+[![valorant.net on nuget.org](https://img.shields.io/badge/Nuget-1.4.0-blue)](https://www.nuget.org/packages/Valorant.NET)
 
 The available methods follow this [project](https://github.com/Henrik-3/unofficial-valorant-api)
 
