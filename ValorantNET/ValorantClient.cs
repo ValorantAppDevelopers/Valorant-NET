@@ -169,6 +169,16 @@ namespace ValorantNET
             return result;
         }
 
+        /// <summary>
+        /// Get history rank movement of the player
+        /// </summary>
+        /// <returns></returns>
+        public async Task<MMR> GetHistoryMMR()
+        {
+            var result = await GetRequestAsyncV1<MMR>($"/mmr-history/{Region.ToString()}/{Name}/{Tag}");
+            return result;
+        }
+
         private async Task<T> GetRequestAsyncV1<T>(string request)
         {
             try

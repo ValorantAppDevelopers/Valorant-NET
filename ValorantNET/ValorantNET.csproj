@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.4</Version>
+    <Version>1.4.1</Version>
     <PackageId>Valorant.NET</PackageId>
     <Company>ValorantAppDevelopers</Company>
     <Authors>Teo230</Authors>
@@ -11,10 +11,13 @@
     <RepositoryUrl></RepositoryUrl>
     <Product>Valorant .NET</Product>
     <Description>Valorant .NET wrapper library
-The version follow the associated API service version</Description>
-    <AssemblyVersion>1.4.0.0</AssemblyVersion>
-    <FileVersion>1.4.0.0</FileVersion>
-    <PackageReleaseNotes>Fix endpoint</PackageReleaseNotes>
+The version follow the associated API service version
+Support @Henrik-3 on github with a donation for his hosted service
+https://github.com/Henrik-3</Description>
+    <AssemblyVersion>1.4.1.0</AssemblyVersion>
+    <FileVersion>1.4.1.0</FileVersion>
+    <PackageReleaseNotes>Add new endpoint
+/valorant/v1/mmr-history/{region}/{name}/{tag}</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

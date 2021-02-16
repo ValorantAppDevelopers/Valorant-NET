@@ -8,7 +8,7 @@ namespace ValorantNET.Models
     {
         public string status { get; set; }
         public Data data { get; set; }
-        
+
         public class Data
         {
             public int currenttier { get; set; }
@@ -16,6 +16,8 @@ namespace ValorantNET.Models
             public int ranking_in_tier { get; set; }
             public int mmr_change_to_last_game { get; set; }
             public int elo { get; set; }
+            public string date { get; set; }
+            public long date_raw { get; set; }
         }
     }
 }
