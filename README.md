@@ -1,6 +1,6 @@
-# Valorant .NET - 1.4.1
-[![valorant.net on fuget.org](https://img.shields.io/badge/FuGet-1.4.1-green?logo=FuGet)](https://www.fuget.org/packages/valorant.net/1.4.1)
-[![valorant.net on nuget.org](https://img.shields.io/badge/NuGet-1.4.1-blue?logo=NuGet)](https://www.nuget.org/packages/Valorant.NET)
+# Valorant .NET - 1.5.0
+[![valorant.net on fuget.org](https://img.shields.io/badge/FuGet-1.5.0-green?logo=FuGet)](https://www.fuget.org/packages/valorant.net/1.5.0)
+[![valorant.net on nuget.org](https://img.shields.io/badge/NuGet-1.5.0-blue?logo=NuGet)](https://www.nuget.org/packages/Valorant.NET)
 
 The available methods follow this [project](https://github.com/Henrik-3/unofficial-valorant-api)
 
@@ -19,7 +19,7 @@ This library use .NET Standard 2.0
 [Check](https://docs.microsoft.com/en-us/dotnet/standard/net-standard) the official Microsoft documentation for more info
 
 # Nuget Installation
-```Install-Package Valorant.NET -Version 1.4.1```
+```Install-Package Valorant.NET -Version 1.5.0```
 
 Or searching on Nuget ```Valorant.NET```
 
