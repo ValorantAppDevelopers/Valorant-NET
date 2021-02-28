@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.4.1</Version>
+    <Version>1.5.0</Version>
     <PackageId>Valorant.NET</PackageId>
     <Company>ValorantAppDevelopers</Company>
     <Authors>Teo230</Authors>
@@ -14,10 +14,11 @@
 The version follow the associated API service version
 Support @Henrik-3 on github with a donation for his hosted service
 https://github.com/Henrik-3</Description>
-    <AssemblyVersion>1.4.1.0</AssemblyVersion>
-    <FileVersion>1.4.1.0</FileVersion>
-    <PackageReleaseNotes>Add new endpoint
-/valorant/v1/mmr-history/{region}/{name}/{tag}</PackageReleaseNotes>
+    <AssemblyVersion>1.5.0.0</AssemblyVersion>
+    <FileVersion>1.5.0.0</FileVersion>
+    <PackageReleaseNotes>Add new endpoints
+/valorant/v2/mmr
+/valorant/v1/live-match</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
