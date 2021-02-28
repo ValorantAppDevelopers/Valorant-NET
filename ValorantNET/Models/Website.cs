@@ -4,10 +4,9 @@ using System.Text;
 
 namespace ValorantNET.Models
 {
-    public class Website
+    public class Website : BaseResponse
     {
-        public string status { get; set; }
-        public Data[] data { get; set; }
+        public List<Data> data { get; set; }
 
         public class Data
         {

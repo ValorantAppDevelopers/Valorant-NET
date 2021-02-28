@@ -148,22 +148,22 @@ namespace ValorantNET
         }
 
         /// <summary>
-        /// Get website content
+        /// Get website articles
         /// </summary>
         /// <param name="countryCode"></param>
         /// <returns></returns>
-        public async Task<Website> GetWebsiteAsync(CountryCodes countryCode)
+        public async Task<Website> GetWebsiteArticlesAsync(CountryCodes countryCode)
         {
             var result = await GetRequestAsyncV1<Website>($"/website/{countryCode.ToString().Replace("_","-").ToLower()}");
             return result;
         }
 
         /// <summary>
-        /// Get website content filtered
+        /// Get website articles filtered
         /// </summary>
         /// <param name="countryCode"></param>
         /// <returns></returns>
-        public async Task<Website> GetWebsiteAsync(CountryCodes countryCode, WebsiteFilter websiteFilter)
+        public async Task<Website> GetWebsiteArticlesAsync(CountryCodes countryCode, WebsiteFilter websiteFilter)
         {
             var result = await GetRequestAsyncV1<Website>($"/website/{countryCode.ToString().Replace("_", "-").ToLower()}?filter={websiteFilter}");
             return result;
@@ -173,9 +173,39 @@ namespace ValorantNET
         /// Get history rank movement of the player
         /// </summary>
         /// <returns></returns>
-        public async Task<MMR> GetHistoryMMR()
+        public async Task<MMRHistory> GetMMRHistory()
         {
-            var result = await GetRequestAsyncV1<MMR>($"/mmr-history/{Region.ToString()}/{Name}/{Tag}");
+            var result = await GetRequestAsyncV1<MMRHistory>($"/mmr-history/{Region.ToString()}/{Name}/{Tag}");
+            return result;
+        }
+
+        /// <summary>
+        /// MMR History for previous Seasons
+        /// </summary>
+        /// <returns></returns>
+        public async Task<MMR> GetMMR()
+        {
+            var result = await GetRequestAsyncV2<MMR>($"/mmr/{Region.ToString()}/{Name}/{Tag}");
+            return result;
+        }
+
+        /// <summary>
+        /// MMR History for previous Seasons filtered
+        /// </summary>
+        /// <returns></returns>
+        public async Task<MMR> GetMMR(EpisodeFilter episodeFilter)
+        {
+            var result = await GetRequestAsyncV2<MMR>($"/mmr/{Region.ToString()}/{Name}/{Tag}?filter={episodeFilter}");
+            return result;
+        }
+
+        /// <summary>
+        /// Get the presence and live match status of user
+        /// </summary>
+        /// <returns></returns>
+        public async Task<LivePresence> GetPlayerMatchStatus()
+        {
+            var result = await GetRequestAsyncV1<LivePresence>($"/live-match/{Name}/{Tag}");
             return result;
         }
 

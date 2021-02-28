@@ -4,10 +4,9 @@ using System.Text;
 
 namespace ValorantNET.Models
 {
-    public class Leaderboard
+    public class Leaderboard : BaseResponse
     {
-        public string status { get; set; }
-        public Data[] data { get; set; }
+        public List<Data> data { get; set; }
         
         public class Data
         {

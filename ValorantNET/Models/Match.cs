@@ -4,11 +4,10 @@ using System.Text;
 
 namespace ValorantNET.Models
 {
-    public class Match
+    public class Match : BaseResponse
     {
         public string user { get; set; }
-        public string status { get; set; }
-        public MatchInfo[] matches { get; set; }
+        public List<MatchInfo> matches { get; set; }
 
         public class MatchInfo
         {

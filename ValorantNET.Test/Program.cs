@@ -17,11 +17,12 @@ namespace ValorantNET.Test
         static void Main(string[] args)
         {
             ValorantClient = new ValorantClient(username,tag,region);
-            GetStatsV2();
+            //GetStatsV2();
             //GetMatches();
             //GetMatcheInfo();
             //GetPUUID();
             //GetLeaderboard();
+            GetPlayerStatus();
             Console.ReadKey();
         }
 
@@ -85,6 +86,17 @@ namespace ValorantNET.Test
             var task = new Task(async () =>
             {
                 var result = await ValorantClient.GetLeaderboardAsync();
+                if (result != null)
+                    ShowProp(result);
+            });
+            task.Start();
+        }
+
+        private static void GetPlayerStatus()
+        {
+            var task = new Task(async () =>
+            {
+                var result = await ValorantClient.GetPlayerMatchStatus();
                 if (result != null)
                     ShowProp(result);
             });

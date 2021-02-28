@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ValorantNET.Models
 {
-    public class MatchInfo
+    public class MatchInfo : BaseResponse
     {
         public Metadata metadata { get; set; }
         public Data data { get; set; }

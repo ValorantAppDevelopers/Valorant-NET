@@ -4,9 +4,8 @@ using System.Text;
 
 namespace ValorantNET.Models
 {
-    public class StoreFeatured
+    public class StoreFeatured : BaseResponse
     {
-        public string status { get; set; }
         public Data data { get; set; }
 
         public class Data
@@ -25,7 +24,7 @@ namespace ValorantNET.Models
             public string ID { get; set; }
             public string DataAssetID { get; set; }
             public string CurrencyID { get; set; }
-            public ItemInfo[] Items { get; set; }
+            public List<ItemInfo> Items { get; set; }
         }
 
         public class ItemInfo

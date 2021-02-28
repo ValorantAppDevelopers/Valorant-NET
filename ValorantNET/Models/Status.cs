@@ -4,16 +4,15 @@ using System.Text;
 
 namespace ValorantNET.Models
 {
-    public class Status
+    public class Status : BaseResponse
     {
-        public string status { get; set; }
         public string region { get; set; }
         public Data data { get; set; }
 
         public class Data
         {
-            public object[] maintenances { get; set; }
-            public object[] incidents { get; set; }
+            public List<object> maintenances { get; set; }
+            public List<object> incidents { get; set; }
         }
     }
 }

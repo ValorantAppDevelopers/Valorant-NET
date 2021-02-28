@@ -4,13 +4,12 @@ using System.Text;
 
 namespace ValorantNET.Models
 {
-    public class Player
+    public class Player : BaseResponse
     {
         public string user { get; set; }
-        public string status { get; set; }
         public Stats stats { get; set; }
-        public Agent[] agents { get; set; }
-        public Map[] maps { get; set; }
+        public List<Agent> agents { get; set; }
+        public List<Map> maps { get; set; }
 
         public class Stats
         {

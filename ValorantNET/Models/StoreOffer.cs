@@ -4,14 +4,13 @@ using System.Text;
 
 namespace ValorantNET.Models
 {
-    public class StoreOffer
+    public class StoreOffer : BaseResponse
     {
-        public string status { get; set; }
         public Data data { get; set; }
 
         public class Data
         {
-            public Offer[] Offers { get; set; }
+            public List<Offer> Offers { get; set; }
             public Upgradecurrencyoffer[] UpgradeCurrencyOffers { get; set; }
         }
 
@@ -21,7 +20,7 @@ namespace ValorantNET.Models
             public bool IsDirectPurchase { get; set; }
             public object StartDate { get; set; }
             public Cost Cost { get; set; }
-            public Reward[] Rewards { get; set; }
+            public List<Reward> Rewards { get; set; }
         }
 
         public class Cost

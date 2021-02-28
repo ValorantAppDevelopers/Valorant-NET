@@ -4,9 +4,8 @@ using System.Text;
 
 namespace ValorantNET.Models
 {
-    public class Content
+    public class Content : BaseResponse
     {
-        public string status { get; set; }
         public string region { get; set; }
         public Data data { get; set; }
 

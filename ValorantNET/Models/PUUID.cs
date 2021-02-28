@@ -4,9 +4,8 @@ using System.Text;
 
 namespace ValorantNET.Models
 {
-    public class PUUID
+    public class PUUID : BaseResponse
     {
-        public string status { get; set; }
         public Data data { get; set; }
         
         public class Data
