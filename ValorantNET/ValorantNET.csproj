@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.5.0</Version>
+    <Version>1.6.2</Version>
     <PackageId>Valorant.NET</PackageId>
     <Company>ValorantAppDevelopers</Company>
     <Authors>Teo230</Authors>
@@ -14,11 +14,20 @@
 The version follow the associated API service version
 Support @Henrik-3 on github with a donation for his hosted service
 https://github.com/Henrik-3</Description>
-    <AssemblyVersion>1.5.0.0</AssemblyVersion>
-    <FileVersion>1.5.0.0</FileVersion>
-    <PackageReleaseNotes>Add new endpoints
-/valorant/v2/mmr
-/valorant/v1/live-match</PackageReleaseNotes>
+    <AssemblyVersion>1.6.2.0</AssemblyVersion>
+    <FileVersion>1.6.2.0</FileVersion>
+    <PackageReleaseNotes>Update Regions enum
+GetStatsAsync - Obsolete
+GetPUUIDAsync - Obsolete
+GetMacthesAsync - Obsolete
+
+GetMatchInfoAsync update to V2
+GetMatchesAsync update to V3
+
+Add GetSelfLeaderboardAsync
+Add GetMMRByPUUID
+Add GetMatchesByPUUID
+Add GetAccount</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

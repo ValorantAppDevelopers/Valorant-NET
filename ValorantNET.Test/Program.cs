@@ -96,7 +96,7 @@ namespace ValorantNET.Test
         {
             var task = new Task(async () =>
             {
-                var result = await ValorantClient.GetPlayerMatchStatus();
+                var result = await ValorantClient.GetPlayerMatchStatusAsync();
                 if (result != null)
                     ShowProp(result);
             });

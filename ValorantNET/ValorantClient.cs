@@ -187,7 +187,7 @@ namespace ValorantNET
         /// Get history rank movement of the player
         /// </summary>
         /// <returns></returns>
-        public async Task<MMRHistory> GetMMRHistory()
+        public async Task<MMRHistory> GetMMRHistoryAsync()
         {
             var result = await GetRequestAsyncV1<MMRHistory>($"/mmr-history/{Region.ToString()}/{Name}/{Tag}");
             return result;
@@ -197,7 +197,7 @@ namespace ValorantNET
         /// MMR History for previous Seasons
         /// </summary>
         /// <returns></returns>
-        public async Task<MMR> GetMMR()
+        public async Task<MMR> GetMMRAsync()
         {
             var result = await GetRequestAsyncV2<MMR>($"/mmr/{Region.ToString()}/{Name}/{Tag}");
             return result;
@@ -207,7 +207,7 @@ namespace ValorantNET
         /// MMR History for previous Seasons filtered
         /// </summary>
         /// <returns></returns>
-        public async Task<MMR> GetMMR(EpisodeFilter episodeFilter)
+        public async Task<MMR> GetMMRAsync(EpisodeFilter episodeFilter)
         {
             var result = await GetRequestAsyncV2<MMR>($"/mmr/{Region.ToString()}/{Name}/{Tag}?filter={episodeFilter}");
             return result;
@@ -218,7 +218,7 @@ namespace ValorantNET
         /// </summary>
         /// <param name="puuid"></param>
         /// <returns></returns>
-        public async Task<dynamic> GetMMRByPUUID(string puuid)
+        public async Task<dynamic> GetMMRByPUUIDAsync(string puuid)
         {
             var result = await GetRequestAsyncV1<dynamic>($"/by-puuid/mmr/{Region.ToString()}/{puuid}");
             return result;
@@ -228,7 +228,7 @@ namespace ValorantNET
         /// Get the presence and live match status of user
         /// </summary>
         /// <returns></returns>
-        public async Task<LivePresence> GetPlayerMatchStatus()
+        public async Task<LivePresence> GetPlayerMatchStatusAsync()
         {
             var result = await GetRequestAsyncV1<LivePresence>($"/live-match/{Name}/{Tag}");
             return result;
@@ -239,7 +239,7 @@ namespace ValorantNET
         /// </summary>
         /// <param name="puuid"></param>
         /// <returns></returns>
-        public async Task<dynamic> GetMatchesByPUUID(string puuid)
+        public async Task<dynamic> GetMatchesByPUUIDAsync(string puuid)
         {
             var result = await GetRequestAsyncV1<dynamic>($"/by-puuid/matches/{Region.ToString()}/{puuid}");
             return result;
@@ -249,7 +249,7 @@ namespace ValorantNET
         /// Get account base information
         /// </summary>
         /// <returns></returns>
-        public async Task<Account> GetAccount()
+        public async Task<Account> GetAccountAsync()
         {
             var result = await GetRequestAsyncV1<Account>($"/account/{Name}/{Tag}");
             return result;
