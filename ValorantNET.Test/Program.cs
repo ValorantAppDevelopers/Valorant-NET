@@ -20,9 +20,9 @@ namespace ValorantNET.Test
             //GetStatsV2();
             //GetMatches();
             //GetMatcheInfo();
-            //GetPUUID();
+            GetPUUID();
             //GetLeaderboard();
-            GetPlayerStatus();
+            //GetPlayerStatus();
             Console.ReadKey();
         }
 
@@ -76,7 +76,7 @@ namespace ValorantNET.Test
             {
                 var result = await ValorantClient.GetPUUIDAsync();
                 if (result != null)
-                    ShowProp(result);
+                    ShowProp(result.data.puuid);
             });
             task.Start();
         }

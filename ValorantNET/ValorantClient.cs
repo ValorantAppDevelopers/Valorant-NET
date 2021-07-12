@@ -30,6 +30,7 @@ namespace ValorantNET
         /// <param name="name"></param>
         /// <param name="tag"></param>
         /// <returns></returns>
+        [Obsolete]
         public async Task<Player> GetStatsAsync()
         {
             var result = await GetRequestAsyncV2<Player>($"/profile/{Name}/{Tag}");
@@ -42,6 +43,7 @@ namespace ValorantNET
         /// <param name="name"></param>
         /// <param name="tag"></param>
         /// <returns></returns>
+        [Obsolete]
         public async Task<Player> GetStatsAsync(EpisodeFilter episodeFilter)
         {
             var result = await GetRequestAsyncV2<Player>($"/profile/{Name}/{Tag}?filter=" + episodeFilter.ToString().ToLower());
@@ -56,7 +58,7 @@ namespace ValorantNET
         /// <returns></returns>
         public async Task<Match> GetMatchesAsync()
         {
-            var result = await GetRequestAsyncV1<Match>($"/matches/{Name}/{Tag}");
+            var result = await GetRequestAsyncV3<Match>($"/matches/{Region}/{Name}/{Tag}");
             return result;
         }
 
@@ -66,6 +68,7 @@ namespace ValorantNET
         /// <param name="name"></param>
         /// <param name="tag"></param>
         /// <returns></returns>
+        [Obsolete]
         public async Task<Match> GetMatchesAsync(MatchFilter matchType)
         {
             var result = await GetRequestAsyncV1<Match>($"/matches/{Name}/{Tag}?filter=" + matchType.ToString().ToLower());
@@ -79,7 +82,7 @@ namespace ValorantNET
         /// <returns></returns>
         public async Task<MatchInfo> GetMatchInfoAsync(string matchId)
         {
-            var result = await GetRequestAsyncV1<MatchInfo>($"/match/{matchId}");
+            var result = await GetRequestAsyncV2<MatchInfo>($"/match/{matchId}");
             return result;
         }
 
@@ -90,7 +93,7 @@ namespace ValorantNET
         /// <returns></returns>
         public async Task<Status> GetServerStatusAsync()
         {
-            var result = await GetRequestAsyncV1<Status>($"/status/{Region.ToString().ToLower()}");
+            var result = await GetRequestAsyncV1<Status>($"/status/{Region.ToString()}");
             return result;
         }
 
@@ -100,6 +103,7 @@ namespace ValorantNET
         /// <param name="name"></param>
         /// <param name="tag"></param>
         /// <returns></returns>
+        [Obsolete]
         public async Task<PUUID> GetPUUIDAsync()
         {
             var result = await GetRequestAsyncV1<PUUID>($"/puuid/{Name}/{Tag}");
@@ -113,7 +117,17 @@ namespace ValorantNET
         /// <returns></returns>
         public async Task<Leaderboard> GetLeaderboardAsync()
         {
-            var result = await GetRequestAsyncV1<Leaderboard>($"/leaderboard/{Region.ToString().ToLower()}");
+            var result = await GetRequestAsyncV1<Leaderboard>($"/leaderboard/{Region.ToString()}");
+            return result;
+        }
+
+        /// <summary>
+        /// Return the ingame leaderboard on the current user
+        /// </summary>
+        /// <returns></returns>
+        public async Task<Leaderboard> GetSelfLeaderboardAsync()
+        {
+            var result = await GetRequestAsyncV1<Leaderboard>($"/leaderboard/{Region.ToString()}?name={Name}&tag={Tag}");
             return result;
         }
 
@@ -200,12 +214,44 @@ namespace ValorantNET
         }
 
         /// <summary>
+        /// Get MMR by PUUID - Object class to be defined
+        /// </summary>
+        /// <param name="puuid"></param>
+        /// <returns></returns>
+        public async Task<dynamic> GetMMRByPUUID(string puuid)
+        {
+            var result = await GetRequestAsyncV1<dynamic>($"/by-puuid/mmr/{Region.ToString()}/{puuid}");
+            return result;
+        }
+
+        /// <summary>
         /// Get the presence and live match status of user
         /// </summary>
         /// <returns></returns>
         public async Task<LivePresence> GetPlayerMatchStatus()
         {
             var result = await GetRequestAsyncV1<LivePresence>($"/live-match/{Name}/{Tag}");
+            return result;
+        }
+
+        /// <summary>
+        /// Return list of matches by providing PUUID - Object class to be defined
+        /// </summary>
+        /// <param name="puuid"></param>
+        /// <returns></returns>
+        public async Task<dynamic> GetMatchesByPUUID(string puuid)
+        {
+            var result = await GetRequestAsyncV1<dynamic>($"/by-puuid/matches/{Region.ToString()}/{puuid}");
+            return result;
+        }
+
+        /// <summary>
+        /// Get account base information
+        /// </summary>
+        /// <returns></returns>
+        public async Task<Account> GetAccount()
+        {
+            var result = await GetRequestAsyncV1<Account>($"/account/{Name}/{Tag}");
             return result;
         }
 
@@ -239,6 +285,27 @@ namespace ValorantNET
                     client.BaseAddress = new Uri(Endpoint);
 
                     var result = await client.GetAsync(Route + "/v2" + request);
+                    var contents = await result.Content.ReadAsStringAsync();
+                    var modelObject = JsonConvert.DeserializeObject<T>(contents);
+
+                    return modelObject;
+                }
+            }
+            catch (Exception exc)
+            {
+                return default(T);
+            }
+        }
+
+        private async Task<T> GetRequestAsyncV3<T>(string request)
+        {
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(Endpoint);
+
+                    var result = await client.GetAsync(Route + "/v3" + request);
                     var contents = await result.Content.ReadAsStringAsync();
                     var modelObject = JsonConvert.DeserializeObject<T>(contents);
 

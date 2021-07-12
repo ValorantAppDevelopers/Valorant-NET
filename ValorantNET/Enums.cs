@@ -9,11 +9,11 @@ namespace ValorantNET
         public enum Regions
         {
             AP,
-            BR,
+            //BR,
             EU,
-            LATAM,
+            //LATAM,
             NA,
-            KO
+            KR,
         }
 
         public enum CountryCodes
