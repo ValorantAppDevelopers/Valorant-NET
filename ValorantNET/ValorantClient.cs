@@ -12,7 +12,7 @@ namespace ValorantNET
     {
         private const string Endpoint = "https://api.henrikdev.xyz";
         private const string Route = "/valorant";
-       
+
         public string Name { get; private set; }
         public string Tag { get; private set; }
         public Regions Region { get; private set; }
@@ -168,7 +168,7 @@ namespace ValorantNET
         /// <returns></returns>
         public async Task<Website> GetWebsiteArticlesAsync(CountryCodes countryCode)
         {
-            var result = await GetRequestAsyncV1<Website>($"/website/{countryCode.ToString().Replace("_","-").ToLower()}");
+            var result = await GetRequestAsyncV1<Website>($"/website/{countryCode.ToString().Replace("_", "-").ToLower()}");
             return result;
         }
 
@@ -228,11 +228,14 @@ namespace ValorantNET
         /// Get the presence and live match status of user
         /// </summary>
         /// <returns></returns>
+        [Obsolete]
         public async Task<LivePresence> GetPlayerMatchStatusAsync()
         {
             var result = await GetRequestAsyncV1<LivePresence>($"/live-match/{Name}/{Tag}");
             return result;
         }
+
+
 
         /// <summary>
         /// Return list of matches by providing PUUID - Object class to be defined
@@ -270,7 +273,7 @@ namespace ValorantNET
                     return modelObject;
                 }
             }
-            catch(Exception exc)
+            catch (Exception exc)
             {
                 return default(T);
             }
