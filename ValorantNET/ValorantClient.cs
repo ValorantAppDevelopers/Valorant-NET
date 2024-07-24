@@ -228,11 +228,14 @@ namespace ValorantNET
         /// Get the presence and live match status of user
         /// </summary>
         /// <returns></returns>
+        [Obsolete]
         public async Task<LivePresence> GetPlayerMatchStatusAsync()
         {
             var result = await GetRequestAsyncV1<LivePresence>($"/live-match/{Name}/{Tag}");
             return result;
         }
+
+
 
         /// <summary>
         /// Return list of matches by providing PUUID - Object class to be defined
